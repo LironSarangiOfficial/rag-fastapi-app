@@ -9,7 +9,7 @@ from langchain_core.prompts import PromptTemplate
 from langchain.chains import ConversationalRetrievalChain
 import jq
 import time
- 
+import os
 import warnings
 warnings.filterwarnings("ignore")
  
