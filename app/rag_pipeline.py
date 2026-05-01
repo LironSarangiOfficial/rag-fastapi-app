@@ -1,6 +1,3 @@
-import os
-os.environ["HF_HUB_OFFLINE"] = "1"
-
 from dotenv import load_dotenv
 from langchain_community.document_loaders import CSVLoader, JSONLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
