@@ -1,4 +1,6 @@
 import os
+os.environ["HF_HUB_OFFLINE"] = "1"
+
 from dotenv import load_dotenv
 from langchain_community.document_loaders import CSVLoader, JSONLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -16,6 +18,8 @@ warnings.filterwarnings("ignore")
  
 load_dotenv()
 
+from sentence_transformers import SentenceTransformer
+SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
  
 def create_rag_pipeline():
     try:

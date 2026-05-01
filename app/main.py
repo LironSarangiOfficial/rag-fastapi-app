@@ -1,12 +1,18 @@
 # FastAPI - REST API Key
 from fastapi import FastAPI
 from pydantic import BaseModel
+from contextlib import asynccontextmanager
 from app.rag_pipeline import create_rag_pipeline
  
 app = FastAPI()
  
-qa_chain = create_rag_pipeline()
- 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    global qa_chain
+    qa_chain = create_rag_pipeline()
+    yield
+
 class Query(BaseModel):
     query: str
  
