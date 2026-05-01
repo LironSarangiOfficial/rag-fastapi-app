@@ -7,7 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
- 
+    
+
     steps:
  
     - name: Checkout Code
@@ -23,5 +24,7 @@ jobs:
         pip install -r requirements.txt
  
     - name: Test Import
+      env:
+        GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
       run: |
         python -c "from app import main"
